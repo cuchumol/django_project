@@ -7,14 +7,12 @@ from django.template.defaultfilters import truncatewords
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    preview_text = models.TextField()
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(null=True, blank=True)
     is_published = models.BooleanField(default=False)
-
-
-
 
     objects = PostManager()
     published = PostPushManager()
@@ -25,8 +23,9 @@ class Post(models.Model):
         self.is_published = True  
         self.save()
 
-    #def is_published(self):
-    #    return True if self.published_date else False
+    def save(self, *args, **kwargs):
+        self.preview_text = truncatewords(self.text, 10)
+        super().save(*args, **kwargs)
 
 
     class Meta:
