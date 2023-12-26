@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        
+
+        <div class="post-detail">
+           
+            {% if post.published_date %}
+                <div class="date">{{ post.published_date }}</div>
+            {% else %}
+                <div><a href="{% url 'post_publish' id=post.id %}" class="btn btn-info">Опубликовать</a></div>
+            {% endif %}
+            
+
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.text|linebreaksbr }}</p>
+            {% if request.user == post.author %}
+
+                <a href="{% url 'post_edit' id=post.id %}" class="btn btn-info">
+                    <i class="material-icons">edit</i>
+                </a>
+
+                <a href="{% url 'post_delete' id=post.id %}" class="btn btn-info">
+                    <i class="material-icons">delete</i>
+                </a>
+
+                
+            {% endif %}    
+            
+            <hr>
+           
+            {% for comment in post.comments.all %}
+                <div class="comment">
+                    <strong class="author">{{ comment.author }}</strong>
+                    <span class="date">{{ comment.created_date }}</span>
+                    <p class="text">{{ comment.text|linebreaksbr }}</p>
+                </div>
+            {% empty %}
+                <p>Комментарии отсутствуют</p>
+            {% endfor %}
+            <hr>
+
+            <a href="{% url 'add_comment' id=post.id %}" class="btn btn-info">
+                <i class="material-icons">comment</i>
+            </a>
+
+        </div>
+    </div>
+{% endblock %}

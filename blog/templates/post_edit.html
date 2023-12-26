@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+                <form method="POST" class="post-form login-form mx-auto">
+                    <h1 class="mb-4 text-center">
+                        {% if form.instance.id %}
+                            Редактирование {{ form.instance.title }}
+                        {% else %}
+                            Новая запись
+                        {% endif %}
+                    </h1>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ form.title.id_for_label }}">Заголовок</label>
+                        {{ form.title|add_class:"form-control" }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.text.id_for_label }}">Пост</label>
+                        {{ form.text|add_class:"form-control" }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.is_published.id_for_label }}">Publish</label>
+                        {{ form.is_published|add_class:"form-check-input" }}
+                    </div>
+
+                    <button type="submit" class="btn btn-info d-inline-block">
+                        <i class="material-icons">add</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

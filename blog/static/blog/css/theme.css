@@ -1,0 +1,272 @@
+/* theme.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/blog/images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #fff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000; 
+    padding: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    border-bottom: 2px solid #fff;
+   /* width: 100%;*/
+    position: relative;
+}
+
+.title-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+div.post {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word;
+    width: calc(33.33% - 20px); /* Ширина каждого поста в ряду */
+    margin-right: 20px; /* Отступ между постами */
+    box-sizing: border-box;
+}
+
+div.post:last-child {
+    margin-right: 0; /* без отступа справа у последнего поста в ряду */
+}
+
+div.post:hover {
+    transform: scale(1.02);
+}
+
+.date {
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.author {
+    color: #000;
+    margin-bottom: 5px;
+}
+
+.post-title a {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #000;
+    text-decoration: none;
+    display: block;
+    word-wrap: break-word;
+}
+
+.post-content {
+    color: #000;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.post-detail {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    color: #000;
+}
+
+
+.post-detail {
+    margin: 20px auto; /* Выравнивание по центру */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000;
+    min-height: 100vh; /* Минимальная высота */
+    min-width: 100vh; /* Минимальная ширина */
+    text-align: center; 
+    word-wrap: break-word;
+}
+
+.new-custom-icon-color {
+    color: #337ab7;
+}
+
+.custom-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    word-wrap: break-word;
+    background-color: #337ab7; 
+    color: #fff;
+    border-radius: 5px; 
+    border: 2px solid #337ab7;
+    transition: background-color 0.3s, color 0.3s; /* Плавные переходы */
+  /*  height: 25px;
+    width: 125px; */
+
+}
+
+.custom-button:hover {
+    background-color: #23527c; /* Измененный цвет фона при наведении */
+    color: #fff; /* Измененный цвет текста при наведении */
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+    z-index: 2; /* чтобы .menu-container был выше .header */
+}
+
+#menu-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+    padding: 10px;
+    background-color: #337ab7 !important; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста кнопки */
+    border: none;
+    cursor: pointer;
+}
+
+#menu-list {
+    display: none;
+    position: absolute;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    top: 40px;
+    background-color: #337ab7;
+    border: 1px solid #337ab7;
+    border-radius: 5px;
+}
+
+#menu-list li {
+    margin-top: 5px;
+    color: #fff;
+}
+
+#menu-button:hover + #menu-list {
+    display: block;
+}
+
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000;
+    padding: 20px;
+    text-align: center;
+    word-wrap: break-word;
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    position: relative;
+    z-index: 1; 
+}
+
+.title-container {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+.login-form {
+    margin: 20px auto; /* Выравнивание по центру */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #000;
+    min-width: 100vh; /* Минимальная ширина */
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.login-form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.comment {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.comment .author {
+    font-weight: bold;
+    color: #337ab7;
+}
+
+.comment .date {
+    margin-left: 10px;
+    font-style: italic;
+    color: #777;
+}
+
+.comment .text {
+    margin-top: 10px;
+    color: #333;
+    word-wrap: break-word;
+}
+
+.href-class{
+    text-decoration: none;
+    color: #fff
+}
+
+.href-class-post{
+    text-decoration: none;
+}

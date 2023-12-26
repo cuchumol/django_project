@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+    {% for post in posts %}
+    <a href="{{ post.get_absolute_url }}" class="href-class-post">
+        <div class="post">
+            <p class="date">Опубликовано: {{ post.published_date }}</p>
+            <h1 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+            <p class="author">Автор: {{ post.author}}</p>
+            <p class="post-content">
+                {{ post.text|slice:":40"|linebreaksbr }}
+                {% if post.text|length > 40 %}...{% endif %}
+            </p>
+            <p class="date">Комментарии: {{ post.comments.count }}</p>
+        </div>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}
