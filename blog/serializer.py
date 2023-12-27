@@ -39,7 +39,7 @@ class PostViewSet(viewsets.ModelViewSet):
     
 
 class BlogPostListSerializer(serializers.ModelSerializer):
-    preview_text = serializers.SerializerMethodField()
+    #preview_text = serializers.SerializerMethodField()
 
     def get_preview_text(self, post):
         return post.get_text_preview()

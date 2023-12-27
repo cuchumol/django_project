@@ -7,7 +7,7 @@ from django.template.defaultfilters import truncatewords
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    preview_text = models.TextField()
+    preview_text = models.TextField(blank=True, null=True)
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
